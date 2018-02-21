@@ -161,6 +161,8 @@ def p_list(t):
 def p_accessor(t):
     """accessor : expression PERIOD NAME
                 | expression LBRACKET NAME RBRACKET
+                | expression PERIOD expression
+                | expression LBRACKET expression RBRACKET
     """
     if isinstance(t[1], App):
         t[0] = t[1].get_model(t[3])
